@@ -1,0 +1,16 @@
+{
+  "name": "assignment_1",
+  "version": "1.0.0",
+  "description": "Remotely request files for AA meetings in Manhattan",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elena Paunova",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "debug": "~2.2.0",
+    "request": "2.67.0"
+  }
+}
