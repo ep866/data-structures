@@ -1,6 +1,7 @@
 // modules
 var fs = require("fs");
 var cheerio = require("cheerio");
+var $ = null;
 
 
 //*******************************************
@@ -29,8 +30,8 @@ var parser = {
     extract: function(data) {
         $ = cheerio.load(data);
 
-        this.entities.total($);
-        this.entities.address($);
+        this.entities.total();
+        this.entities.address();
 
     }
 };
@@ -41,13 +42,13 @@ var parser = {
 //*******************************************
 
 parser.entities = {
-    total: function($) {
+    total: function() {
         console.log('*****************************');
         console.log("Total number of meetings: ",
             $("table table table tr").length);
         console.log('*****************************');
     },
-    address: function($) {
+    address: function() {
         // for each row
         $("table table table tr").each(function(i, e){
 
