@@ -1,0 +1,50 @@
+[
+  {
+    "address": "220 West Houston Street, New York, NY",
+    "name": "Midnite",
+    "location": "220 West Houston Street",
+    "types": "Candlelight, Open, Topic Discussion",
+    "region": "Greenwich Village",
+    "meetings": [
+      {
+        "time": "Friday, 2:00 am to 3:15 am",
+        "location": "220 West Houston Street(49 other meetings at this location)\nNew York, NY 10014",
+        "group": "MIDNITE (Group #12920)",
+        "region": "Greenwich Village",
+        "type": "Candlelight, Open, Topic Discussion",
+        "meetingNotes": "Pitch meeting.",
+        "locationNotes": "2nd Floor. Between 6th Avenue & Varick Street.",
+        "lastContact": "6/13/14"
+      }
+    ],
+    "latLong": {
+      "lat": 40.7287153,
+      "lng": -74.004578
+    },
+    "formattedAddress": "220 W Houston St, New York, NY 10014, USA"
+  },
+  {
+    "address": "220 West Houston Street, New York, NY",
+    "name": "Midnite",
+    "location": "220 West Houston Street",
+    "types": "Candlelight, Open, Topic Discussion",
+    "region": "Greenwich Village",
+    "meetings": [
+      {
+        "time": "Friday, 111112:00 am to 3:15 am",
+        "location": "220 West Houston Street(49 other meetings at this location)\nNew York, NY 10014",
+        "group": "MIDNITE (Group #12920)",
+        "region": "Greenwich Village",
+        "type": "Candlelight, Open, Topic Discussion",
+        "meetingNotes": "Pitch meeting.",
+        "locationNotes": "2nd Floor. Between 6th Avenue & Varick Street.",
+        "lastContact": "6/13/14"
+      }
+    ],
+    "latLong": {
+      "lat": 40.7287153,
+      "lng": -74.004578
+    },
+    "formattedAddress": "220 W Houston St, New York, NY 10014, USA"
+  }
+]

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="pingback" href="http://meetings.nyintergroup.org/xmlrpc.php">
+		<title>Perry Street Workshop | NY Inter-Group</title>
+		<link rel='dns-prefetch' href='//maps.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/meetings.nyintergroup.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='bootstrap_css-css'  href='http://meetings.nyintergroup.org/wp-content/plugins/12-step-meeting-list/includes/../assets/css/bootstrap.min.css?ver=4.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tsml_public_css-css'  href='http://meetings.nyintergroup.org/wp-content/plugins/12-step-meeting-list/includes/../assets/css/public.min.css?ver=4.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='pc_google_analytics-frontend-css'  href='http://meetings.nyintergroup.org/wp-content/plugins/pc-google-analytics/assets/css/frontend.css?ver=1.0.0' type='text/css' media='all' />
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=AIzaSyCC3p6PSf6iQbXi-Itwn9C24_FhkbDUkdg&#038;ver=4.6.1'></script>
+<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-content/plugins/pc-google-analytics/assets/js/frontend.min.js?ver=1.0.0'></script>
+<link rel='https://api.w.org/' href='http://meetings.nyintergroup.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://meetings.nyintergroup.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://meetings.nyintergroup.org/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Perry Street Workshop' href='http://meetings.nyintergroup.org/meetings/perry-street-workshop-36' />
+<link rel='next' title='Perry Street Workshop' href='http://meetings.nyintergroup.org/meetings/perry-street-workshop-43' />
+<meta name="generator" content="WordPress 4.6.1" />
+<link rel="canonical" href="http://meetings.nyintergroup.org/meetings/perry-street-workshop-40" />
+<link rel='shortlink' href='http://meetings.nyintergroup.org/?p=73079' />
+<link rel="alternate" type="application/json+oembed" href="http://meetings.nyintergroup.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fmeetings.nyintergroup.org%2Fmeetings%2Fperry-street-workshop-40" />
+<link rel="alternate" type="text/xml+oembed" href="http://meetings.nyintergroup.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fmeetings.nyintergroup.org%2Fmeetings%2Fperry-street-workshop-40&#038;format=xml" />
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-82436404-1', 'auto');
+		ga('send', 'pageview');
+		
+		</script>
+<meta name="12_step_meeting_list" content="2.5.2">
+		<link rel="stylesheet" href="http://meetings.nyintergroup.org/wp-content/themes/nyintergroup/style.css">
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+		<![endif]-->
+	</head>
+	<body class="single single-meetings postid-73079 nyintergroup">
+		<div class="container header">
+			<div class="row">
+				<div class="col-sm-6 title">
+					<a href="http://www.nyintergroup.org/"><img src="http://meetings.nyintergroup.org/wp-content/themes/nyintergroup/img/title.png" width="289" height="91" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-6 hidden-xs liberty">
+					<img src="http://meetings.nyintergroup.org/wp-content/themes/nyintergroup/img/liberty.png" width="163" height="91" class="img-responsive">
+				</div>
+			</div>
+		</div>
+<div id="meeting" class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 main">
+		
+			<div class="page-header">
+				<h1>Perry Street Workshop</h1>
+				<a href="http://meetings.nyintergroup.org/meetings"><i class="glyphicon glyphicon-chevron-right"></i> Back to Meetings</a>			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<dl>
+						<dt>Time</dt>
+						<dd>
+							Friday, <time>7:30 am</time>							 to 8:30 am						</dd>
+
+						<dt>Location</dt>
+						<dd>
+							<a href="http://meetings.nyintergroup.org/locations/50-perry-street">50 Perry Street<br>(56 other meetings at this location)</a>							<br>
+														New York, NY 10014													</dd>
+						
+												<dt>Group</dt>
+						<dd>
+							<p>PERRY STREET WORKSHOP (Group #13600)</p>
+							<p>Business meeting 1st Wed 8-9 pm</p>						</dd>
+												
+												<dt>Region</dt>
+						<dd>Greenwich Village</dd>
+													<dt>Type</dt>
+							<dd>Closed</dd>
+												<dt>Location Notes</dt>
+						<dd>Ground Floor Between 7th Avenue South &amp; West 4th Street</dd>
+												<!--
+						<dt>Updated</dt>
+						<dd>February 23, 2016</dd>
+						-->
+						<dt>Last Contact Date</dt>
+						<dd>12/1/13</dd>
+						
+						<a class="btn btn-default" href="http://www.nyintergroup.org/groupinfo.cfm">Submit Update</a>
+
+											</dl>
+				</div>
+				<div class="col-md-8">
+					<div id="map" style="height:400px;"></div>
+					<script>
+						var map;
+
+						google.maps.event.addDomListener(window, 'load', function() {
+							map = new google.maps.Map(document.getElementById('map'), {
+								zoom: 15,
+								panControl: false,
+								mapTypeControl: false,
+								zoomControlOptions: { style: google.maps.ZoomControlStyle.SMALL },
+								center: new google.maps.LatLng(40.7380145,-74.0031001),
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+							});
+
+							var contentString = '<div class="infowindow">'+
+								'<h3><a href="http://meetings.nyintergroup.org/locations/50-perry-street">50 Perry Street</a></h3>'+
+								'<p>50 Perry Street<br>New York, NY 10014</p>'+
+								'<p><a class="btn btn-default" href="http://maps.apple.com/?q=40.7355145,-74.0031001&z=16" target="_blank">Directions</a></p>' +
+								'</div>';
+
+							var infowindow = new google.maps.InfoWindow({
+								content: contentString
+							});
+
+							var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(40.7355145,-74.0031001),
+								map: map,
+								title: 'Perry Street Workshop'
+							});
+
+							infowindow.open(map,marker);
+
+							google.maps.event.addListener(marker, 'click', function() {
+								infowindow.open(map,marker);
+							});
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-content/plugins/12-step-meeting-list/includes/../assets/js/bootstrap.min.js?ver=4.6.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var myAjax = {"ajaxurl":"http:\/\/meetings.nyintergroup.org\/wp-admin\/admin-ajax.php","types":{"A":"Atheist \/ Agnostic","BA":"Babysitting Available","BE":"Beginner","B":"Big Book","CF":"Child-Friendly","H":"Chips","C":"Closed","CAN":"Candlelight","AL-AN":"Concurrent with Al-Anon","AL":"Concurrent with Alateen","XT":"Cross Talk Permitted","DLY":"Daily","FF":"Fragrance Free","FR":"French","G":"Gay","GR":"Grapevine","ITA":"Italian","L":"Lesbian","LIT":"Literature","LGBTQ":"LGBTQ","MED":"Meditation","M":"Men","O":"Open","POL":"Polish","POR":"Portuguese","PUN":"Punjabi","RUS":"Russian","ASL":"Sign Language","SM":"Smoking Permitted","S":"Spanish","SP":"Speaker","ST":"Step Meeting","D":"Topic Discussion","TR":"Tradition","T":"Transgender","X":"Wheelchair Accessible","W":"Women","Y":"Young People"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-content/plugins/12-step-meeting-list/includes/../assets/js/public.min.js?ver=4.6.1'></script>
+<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-content/plugins/12-step-meeting-list/includes/../assets/js/jquery.validate.min.js?ver=4.6.1'></script>
+<script type='text/javascript' src='http://meetings.nyintergroup.org/wp-includes/js/wp-embed.min.js?ver=4.6.1'></script>
+	</body>
+</html>
