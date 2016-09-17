@@ -6,7 +6,7 @@ var async = require("async");
 var _ = require("underscore");
 var $ = null;
 
-var url = "http://meetings.nyintergroup.org/";
+var url = "http://meetings.nyintergroup.org/?d=any&v=list";
 
 
 //*******************************************
@@ -54,7 +54,7 @@ var parser = {
         var meetings = [];
 
         // get all meetings
-        $("#meetings_tbody tr").first().each(function(i, e){
+        $("#meetings_tbody tr").each(function(i, e){
             var meetingUrl= $(this).find('a').attr('href');
 
             meetings.push(meetingUrl)
@@ -99,6 +99,11 @@ var parser = {
                 meetings: _.pluck(group, 'details')
             }
         });
+
+            console.log("******************************************");
+            console.log('Unique locations: ', meetingsByAddress.length);
+            console.log("******************************************");
+
 
         fs.writeFileSync('./all_meetings.json', JSON.stringify(meetingsByAddress, null, 2) , 'utf-8');
 
@@ -241,7 +246,7 @@ parser.entities = {
 //*******************************************
 // Run this once to cache all meetings
 //*******************************************
-// parser.request(url, 'meetings');
+parser.request(url, 'meetings');
 
 parser.read("data/meetings.txt", function(html) {
 
@@ -259,7 +264,7 @@ parser.read("data/meetings.txt", function(html) {
         //*******************************************
         // Augment data
         //*******************************************
-        parser.augmentData();
+        // parser.augmentData();
 
 
 
