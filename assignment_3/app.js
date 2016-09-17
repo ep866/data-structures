@@ -136,11 +136,11 @@ var parser = {
                         if (err) {throw err;}
 
                         if(JSON.parse(body).results[0] && JSON.parse(body).results[0].geometry) {
+                            // write the lat and long
                             meeting.latLong = JSON.parse(body).results[0].geometry.location;
                         } else {
                             // Jamaica Hospital was missing an address
-                            // I fixed this manually as it was only one error and
-                            // it did not make sense to do it programmatically
+                            // I fixed this manually as it was only one error
                             meeting.latLong = null;
 
                             console.log("******************************************");
@@ -149,6 +149,7 @@ var parser = {
                         }
 
                         if( JSON.parse(body).results[0] && JSON.parse(body).results[0].formatted_address ) {
+                            // write the formatted address
                             meeting.formatedLocation = JSON.parse(body).results[0].formatted_address;
                         } else {
                             meeting.formatedLocation = null;
@@ -157,12 +158,13 @@ var parser = {
                             console.log("******************************************");
                         }
 
+                        // rebuild the JSON file
                         augmentedMeetings.push(meeting);
 
                         console.log("******************************************");
                         console.log('Augment meeting ', count, ' ' , meeting.meeting);
                         console.log("******************************************");
-                        count++
+                        count++; // keep track of file for debugging
                     });
 
                 setTimeout(callback, 2000);
@@ -171,13 +173,14 @@ var parser = {
                     console.log("******************************************");
                     console.log('Successfully augmented the data');
                     console.log("******************************************");
+                    // on completion write out the augmented data in a json file
                     fs.writeFileSync('./augmented_meetings.json', JSON.stringify(augmentedMeetings, null, 2) , 'utf-8');
                 });
 
 
             } else {
                 console.log("******************************************");
-                console.log('Too Many Unique Locaions for Google API');
+                console.log('Too Many Unique Locations for Google API');
                 console.log("******************************************");
             }
 
@@ -213,6 +216,7 @@ parser.entities = {
                 details = parser.entities.meetingDetails($);
             });
 
+            // grab the first level meeting data
             output.push({
                 time: utils.removeSpace( $(this).find('.time').text() ),
                 meeting: utils.removeSpace( $(this).find('.name').text() ),
@@ -268,10 +272,6 @@ parser.entities = {
 };
 
 
-
-
-
-
 //*******************************************
 // Run this once to cache all meetings
 //*******************************************
@@ -285,19 +285,19 @@ parser.read("data/meetings.txt", function(html) {
         // This takes about 2 hours to complete
         //*******************************************
 
-        // parser.cacheFiles(meetings);
+        parser.cacheFiles(meetings);
 
         //*******************************************
         // Extract data: 1010 unique locations for 3,654 meetings
         //*******************************************
 
-        // parser.extract(meetings);
+        parser.extract(meetings);
 
         //*******************************************
         // Augment data
         //*******************************************
 
-        // parser.augmentData();
+        parser.augmentData();
 
 
     });
