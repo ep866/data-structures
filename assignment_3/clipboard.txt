@@ -1,2 +1,0 @@
-pbpaste > clipboard.txt
-

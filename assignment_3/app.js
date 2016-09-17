@@ -32,7 +32,7 @@ var parser = {
     request: function(url, file) {
         request(url, function(error, response, body){
             if( !error && response.statusCode == 200) {
-                console.log('Read file ' + file + ' successfully!');
+                console.log('Read url ' + file + ' successfully!');
                 fs.writeFileSync('data/' + file + '.txt', body);
                 console.log('Write ' + file + ' ...');
             } else {
@@ -57,22 +57,24 @@ var parser = {
         $("#meetings_tbody tr").each(function(i, e){
             var meetingUrl= $(this).find('a').attr('href');
 
-            meetings.push(meetingUrl)
+            meetings.push(meetingUrl);
 
         });
 
+        console.log("******************************************");
         console.log("Start caching...");
+        console.log("******************************************");
 
         // cache each file
-        async.eachSeries(meetings, function(value, callback) {
+        async.eachSeries(meetings, function(url, callback) {
 
-            var meetingName = utils.parseHref( value );
+            var meetingName = utils.parseHref( url );
 
             // check if already cached
             if( fs.existsSync('data/' + meetingName + '.txt') ) {
                 console.log('File '+ meetingName +' already exists!');
             } else {
-                parser.request(meetingUrl, meetingName);
+                parser.request(url, meetingName);
             }
 
             setTimeout(callback, 2000);
@@ -100,9 +102,9 @@ var parser = {
             }
         });
 
-            console.log("******************************************");
-            console.log('Unique locations: ', meetingsByAddress.length);
-            console.log("******************************************");
+        console.log("******************************************");
+        console.log('Unique locations: ', meetingsByAddress.length);
+        console.log("******************************************");
 
 
         fs.writeFileSync('./all_meetings.json', JSON.stringify(meetingsByAddress, null, 2) , 'utf-8');
@@ -198,6 +200,10 @@ parser.entities = {
                 details: details
             });
 
+            console.log('*****************************');
+            console.log("Extract meeting ", i, ': ', meetingName);
+            console.log('*****************************');
+
         });
 
 
@@ -246,15 +252,16 @@ parser.entities = {
 //*******************************************
 // Run this once to cache all meetings
 //*******************************************
-parser.request(url, 'meetings');
+// parser.request(url, 'meetings');
 
 parser.read("data/meetings.txt", function(html) {
 
     parser.loadData(html, function(meetings){
         //*******************************************
         // Run this once to cache all meetings details
+        // This takes about 2 hours to run
         //*******************************************
-         //parser.cacheFiles(meetings);
+        // parser.cacheFiles(meetings);
 
         //*******************************************
         // Extract data
