@@ -150,7 +150,7 @@ var parser = {
 
                         if( JSON.parse(body).results[0] && JSON.parse(body).results[0].formatted_address ) {
                             // write the formatted address
-                            meeting.formatedLocation = JSON.parse(body).results[0].formatted_address;
+                            meeting.formattedLocation = JSON.parse(body).results[0].formatted_address;
                         } else {
                             meeting.formatedLocation = null;
                             console.log("******************************************");
@@ -164,7 +164,7 @@ var parser = {
                         console.log("******************************************");
                         console.log('Augment meeting ', count, ' ' , meeting.meeting);
                         console.log("******************************************");
-                        count++; // keep track of file for debugging
+                        count++; // keep track of meetings for debugging
                     });
 
                 setTimeout(callback, 2000);
