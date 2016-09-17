@@ -80,7 +80,7 @@ var parser = {
             setTimeout(callback, 2000);
         }, function() {
             console.log("******************************************");
-            console.log("Cached meeting details files succesfully!");
+            console.log("Cached meeting details files successfully!");
             console.log("******************************************");
         });
     },
