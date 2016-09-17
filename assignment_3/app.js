@@ -22,7 +22,7 @@ var utils = {
         return str.replace(/\t|\r/g, '').trim();
     },
     parseHref: function(str) {
-        return str.replace(/^(.*[\\\/])/, '').trim()
+        return str.replace(/^(.*[\\\/])/, '').split("?")[0].trim();
     }
 };
 //*******************************************
@@ -87,7 +87,7 @@ var parser = {
         this.entities.total();
         var meetings = this.entities.meeting();
         var groupMeetings = _.groupBy(meetings, function(meeting){
-            return meeting.address;
+            return meeting.address + ', New York, NY';
         });
         var meetingsByAddress = _.map(groupMeetings, function(group){
             return {
@@ -102,9 +102,55 @@ var parser = {
 
         fs.writeFileSync('./all_meetings.json', JSON.stringify(meetingsByAddress, null, 2) , 'utf-8');
 
-        console.log("******************************************");
-        console.log('Unique locations: ', meetingsByAddress.length);
-        console.log("******************************************");
+    },
+    augmentData: function() {
+        var apiKey = process.env.GMAKEY;
+        var augmentedMeetings = [];
+
+        parser.read('all_meetings.json', function(meetings) {
+            var meetings = JSON.parse(meetings);
+            var uniqueLocations = meetings.length;
+            var apiLimit = 2000;
+
+            console.log("******************************************");
+            console.log('Unique locations: ', uniqueLocations);
+            console.log("******************************************");
+
+            if( uniqueLocations < apiLimit ) {
+                console.log("******************************************");
+                console.log('Start augmenting the data with Google API');
+                console.log("******************************************");
+
+                async.eachSeries(meetings, function(meeting, callback){
+
+                    var apiRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + meeting.address.split(' ').join('+') + '&key=' + apiKey;
+
+                    request(apiRequest, function(err, resp, body) {
+                        if (err) {throw err;}
+                        meeting.latLong = JSON.parse(body).results[0].geometry.location;
+                        meeting.formatedLocation = JSON.parse(body).results[0].formatted_address;
+
+                        augmentedMeetings.push(meeting);
+
+                    });
+
+                setTimeout(callback, 2000);
+
+                }, function() {
+                    console.log("******************************************");
+                    console.log('Successfully augmented the data');
+                    console.log("******************************************");
+                    fs.writeFileSync('./augmented_meetings.json', JSON.stringify(augmentedMeetings, null, 2) , 'utf-8');
+                });
+
+
+            } else {
+                console.log("******************************************");
+                console.log('Too Many Unique Locaions for Google API');
+                console.log("******************************************");
+            }
+
+        });
 
     }
 
@@ -208,13 +254,12 @@ parser.read("data/meetings.txt", function(html) {
         //*******************************************
         // Extract data
         //*******************************************
-        parser.extract(meetings);
-
+        // parser.extract(meetings);
 
         //*******************************************
         // Augment data
         //*******************************************
-
+        parser.augmentData();
 
 
 

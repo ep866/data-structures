@@ -1,50 +1,48 @@
 [
   {
-    "address": "220 West Houston Street, New York, NY",
-    "name": "Midnite",
-    "location": "220 West Houston Street",
-    "types": "Candlelight, Open, Topic Discussion",
-    "region": "Greenwich Village",
+    "address": "1 East Post Road, New York, NY",
+    "location": "1 East Post Road",
+    "meeting": "White Plains Felices En Sobriedad",
+    "type": "Closed, Wheelchair Accessible",
+    "region": "White Plains",
     "meetings": [
       {
-        "time": "Friday, 2:00 am to 3:15 am",
-        "location": "220 West Houston Street(49 other meetings at this location)\nNew York, NY 10014",
-        "group": "MIDNITE (Group #12920)",
-        "region": "Greenwich Village",
-        "type": "Candlelight, Open, Topic Discussion",
-        "meetingNotes": "Pitch meeting.",
-        "locationNotes": "2nd Floor. Between 6th Avenue & Varick Street.",
+        "time": "Friday, 8:00 pm to 10:00 pm",
+        "location": "1 East Post Road(4 other meetings at this location)\nWhite Plains, NY 10601",
+        "group": "WHITE PLAINS FELICES EN SOBRIEDAD (Group #00006)",
+        "region": "White Plains",
+        "type": "Closed, Wheelchair Accessible",
+        "locationNotes": "2nd floor",
         "lastContact": "6/13/14"
       }
     ],
     "latLong": {
-      "lat": 40.7287153,
-      "lng": -74.004578
+      "lat": 41.0252709,
+      "lng": -73.770926
     },
-    "formattedAddress": "220 W Houston St, New York, NY 10014, USA"
+    "formatedLocation": "1 E Post Rd, White Plains, NY 10601, USA"
   },
   {
-    "address": "220 West Houston Street, New York, NY",
-    "name": "Midnite",
-    "location": "220 West Houston Street",
-    "types": "Candlelight, Open, Topic Discussion",
-    "region": "Greenwich Village",
+    "address": "10 South Moger Avenue, New York, NY",
+    "location": "10 South Moger Avenue",
+    "meeting": "Mt Kisco Grupo Latino Americano",
+    "type": "Open, Spanish",
+    "region": "Mt. Kisco",
     "meetings": [
       {
-        "time": "Friday, 111112:00 am to 3:15 am",
-        "location": "220 West Houston Street(49 other meetings at this location)\nNew York, NY 10014",
-        "group": "MIDNITE (Group #12920)",
-        "region": "Greenwich Village",
-        "type": "Candlelight, Open, Topic Discussion",
-        "meetingNotes": "Pitch meeting.",
-        "locationNotes": "2nd Floor. Between 6th Avenue & Varick Street.",
-        "lastContact": "6/13/14"
+        "time": "Friday, 8:00 pm to 10:00 pm",
+        "location": "10 South Moger Avenue(4 other meetings at this location)\nMount Kisco, NY 10549",
+        "group": "MT KISCO GRUPO LATINO AMERICANO (Group #80340)\nSpanish Speaking Meetings",
+        "region": "Mt. Kisco",
+        "type": "Open, Spanish",
+        "locationNotes": "2nd Floor\nAt Saw Mill River Pkway North At exit #34",
+        "lastContact": "1/5/04"
       }
     ],
     "latLong": {
-      "lat": 40.7287153,
-      "lng": -74.004578
+      "lat": 41.2082849,
+      "lng": -73.7285519
     },
-    "formattedAddress": "220 W Houston St, New York, NY 10014, USA"
+    "formatedLocation": "10 S Moger Ave, Mt Kisco, NY 10549, USA"
   }
 ]
