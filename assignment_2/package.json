@@ -4,7 +4,7 @@
   "description": "Parse an AA meetings file and extract meetings data",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Elena Paunova",
