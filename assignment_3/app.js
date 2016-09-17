@@ -118,6 +118,7 @@ var parser = {
             var meetings = JSON.parse(meetings);
             var uniqueLocations = meetings.length;
             var apiLimit = 2000;
+            var count = 1;
 
             console.log("******************************************");
             console.log('Unique locations: ', uniqueLocations);
@@ -129,16 +130,39 @@ var parser = {
                 console.log("******************************************");
 
                 async.eachSeries(meetings, function(meeting, callback){
-
                     var apiRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + meeting.address.split(' ').join('+') + '&key=' + apiKey;
 
                     request(apiRequest, function(err, resp, body) {
                         if (err) {throw err;}
-                        meeting.latLong = JSON.parse(body).results[0].geometry.location;
-                        meeting.formatedLocation = JSON.parse(body).results[0].formatted_address;
+
+                        if(JSON.parse(body).results[0] && JSON.parse(body).results[0].geometry) {
+                            meeting.latLong = JSON.parse(body).results[0].geometry.location;
+                        } else {
+                            // Jamaica Hospital was missing an address
+                            // I fixed this manually as it was only one error and
+                            // it did not make sense to do it programmatically
+                            meeting.latLong = null;
+
+                            console.log("******************************************");
+                            console.log('LatLong error on ', count, ' ' , meeting.meeting);
+                            console.log("******************************************");
+                        }
+
+                        if( JSON.parse(body).results[0] && JSON.parse(body).results[0].formatted_address ) {
+                            meeting.formatedLocation = JSON.parse(body).results[0].formatted_address;
+                        } else {
+                            meeting.formatedLocation = null;
+                            console.log("******************************************");
+                            console.log('Formatted address error on ', count, ' ' , meeting.meeting);
+                            console.log("******************************************");
+                        }
 
                         augmentedMeetings.push(meeting);
 
+                        console.log("******************************************");
+                        console.log('Augment meeting ', count, ' ' , meeting.meeting);
+                        console.log("******************************************");
+                        count++
                     });
 
                 setTimeout(callback, 2000);
@@ -165,7 +189,6 @@ var parser = {
 
 //*******************************************
 // Define entities to be extracted
-// This is the base assignment with address only
 //*******************************************
 parser.entities = {
     total: function() {
@@ -259,21 +282,22 @@ parser.read("data/meetings.txt", function(html) {
     parser.loadData(html, function(meetings){
         //*******************************************
         // Run this once to cache all meetings details
-        // This takes about 2 hours to run
+        // This takes about 2 hours to complete
         //*******************************************
+
         // parser.cacheFiles(meetings);
 
         //*******************************************
-        // Extract data
+        // Extract data: 1010 unique locations for 3,654 meetings
         //*******************************************
+
         // parser.extract(meetings);
 
         //*******************************************
         // Augment data
         //*******************************************
+
         // parser.augmentData();
-
-
 
 
     });
