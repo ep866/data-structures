@@ -23,6 +23,20 @@ var utils = {
     },
     parseHref: function(str) {
         return str.replace(/^(.*[\\\/])/, '').split("?")[0].trim();
+    },
+    removeBrackets: function(str) {
+        return str.replace(/\(([^()]+)\)/g, '');
+    },
+    addComma: function(str) {
+        return str.replace(/\n/g, ", ");
+    },
+    formatAddress: function(str) {
+        // find patterns like 221st StreetQueens and separate
+        // street from Borough. Do not split State abbr
+        return str.replace(/([a-z])([A-Z])/g, '$1 $2');
+    },
+    sanitizeAddress: function(str) {
+        return  utils.addComma(utils.formatAddress( utils.removeSpace( utils.removeBrackets( str ) ) ) );
     }
 };
 //*******************************************
@@ -89,13 +103,15 @@ var parser = {
         this.entities.total();
         var meetings = this.entities.meeting();
         var groupMeetings = _.groupBy(meetings, function(meeting){
-            // fix this - not all are in New York
-            // get location, not address
-            console.log(meeting.details.location);
-            return meeting.address + ', New York, NY';
-        });
+                        // fix this - not all are in New York
+                        // get location, not address
+                        // console.log(meeting.details.location);
+                        return meeting.details.location;
+                    });
+
         var meetingsByAddress = _.map(groupMeetings, function(group){
             return {
+                sanitizedAddress: group[0].details.location,
                 address: group[0].address,
                 location: group[0].location,
                 meeting: group[0].meeting,
@@ -110,9 +126,8 @@ var parser = {
         console.log("******************************************");
 
 
-
         // write file
-        // fs.writeFileSync('./all_meetings.json', JSON.stringify(meetingsByAddress, null, 2) , 'utf-8');
+        fs.writeFileSync('./all_meetings.json', JSON.stringify(meetingsByAddress, null, 2) , 'utf-8');
 
     },
     augmentData: function() {
@@ -135,31 +150,27 @@ var parser = {
                 console.log("******************************************");
 
                 async.eachSeries(meetings, function(meeting, callback){
-                    var apiRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + meeting.address.split(' ').join('+') + '&key=' + apiKey;
+                    var apiRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + meeting.sanitizedAddress.split(' ').join('+').replace(',','') + '&key=' + apiKey;
+
+                    console.log(apiRequest)
 
                     request(apiRequest, function(err, resp, body) {
                         if (err) {throw err;}
 
-                        if(JSON.parse(body).results[0] && JSON.parse(body).results[0].geometry) {
+                        var result = JSON.parse(body);
+
+                        if(!result.error_message) {
                             // write the lat and long
                             meeting.latLong = JSON.parse(body).results[0].geometry.location;
-                        } else {
-                            // Jamaica Hospital was missing an address
-                            // I fixed this manually as it was only one error
-                            meeting.latLong = null;
-
-                            console.log("******************************************");
-                            console.log('LatLong error on ', count, ' ' , meeting.meeting);
-                            console.log("******************************************");
-                        }
-
-                        if( JSON.parse(body).results[0] && JSON.parse(body).results[0].formatted_address ) {
-                            // write the formatted address
+                            // write formatted address
                             meeting.formattedLocation = JSON.parse(body).results[0].formatted_address;
                         } else {
-                            meeting.formatedLocation = null;
+
+                            meeting.latLong = null;
+                            meeting.formattedLocation = null;
+
                             console.log("******************************************");
-                            console.log('Formatted address error on ', count, ' ' , meeting.meeting);
+                            console.log('MAPS api error on ', count, ' ' , meeting.meeting);
                             console.log("******************************************");
                         }
 
@@ -179,7 +190,7 @@ var parser = {
                     console.log('Successfully augmented the data');
                     console.log("******************************************");
                     // on completion write out the augmented data in a json file
-                    fs.writeFileSync('./augmented_meetings.json', JSON.stringify(augmentedMeetings, null, 2) , 'utf-8');
+                    // fs.writeFileSync('./augmented_meetings.json', JSON.stringify(augmentedMeetings, null, 2) , 'utf-8');
                 });
 
 
@@ -193,8 +204,18 @@ var parser = {
 
     },
 
-    sanitize: function() {
+    meetingsStats: function() {
         // check if all detail addresses are the same in all_meetings data
+        parser.read("all_meetings.json", function(meetings){
+            var allMeetings = JSON.parse(meetings);
+
+            var countMeetingPerLocation = _.map(allMeetings,function(x){
+                return _.countBy(x.meetings, "location");
+            });
+
+             fs.writeFileSync('./meetings_stats.json', JSON.stringify(countMeetingPerLocation, null, 2) , 'utf-8');
+        });
+
 
         // if yes move location from details to highter level structure
 
@@ -263,7 +284,7 @@ parser.entities = {
                 output.time = utils.removeSpace( $(this).next().text() );
             }
             if( $(this).text() == 'Location' ) {
-                output.location = utils.removeSpace( $(this).next().text() );
+                output.location = utils.sanitizeAddress( $(this).next().text() );
             }
             if( $(this).text() == 'Group' ) {
                 output.group = utils.removeSpace( $(this).next().text() );
@@ -309,13 +330,14 @@ parser.read("data/meetings.txt", function(html) {
         // Extract data: 1010 unique locations for 3,654 meetings
         //*******************************************
 
-        parser.extract(meetings);
+        // parser.extract(meetings);
+        //parser.meetingsStats();
 
         //*******************************************
         // Augment data
         //*******************************************
 
-        // parser.augmentData();
+        parser.augmentData();
 
 
     });

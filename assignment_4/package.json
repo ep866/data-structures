@@ -4,7 +4,7 @@
   "description": "Scrape and augment the AA data with geoLocation",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node parser.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Elena Paunova",
