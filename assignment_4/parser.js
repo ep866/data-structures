@@ -27,8 +27,8 @@ var utils = {
     removeBrackets: function(str) {
         return str.replace(/\(([^()]+)\)/g, '');
     },
-    addComma: function(str) {
-        return str.replace(/\n/g, ", ");
+    cleanString: function(str) {
+        return str.replace(/\n/g, ", ").replace("&",", ").replace("#","");
     },
     formatAddress: function(str) {
         // find patterns like 221st StreetQueens and separate
@@ -36,7 +36,7 @@ var utils = {
         return str.replace(/([a-z])([A-Z])/g, '$1 $2');
     },
     sanitizeAddress: function(str) {
-        return  utils.addComma(utils.formatAddress( utils.removeSpace( utils.removeBrackets( str ) ) ) );
+        return  utils.cleanString(utils.formatAddress( utils.removeSpace( utils.removeBrackets( str ) ) ) );
     }
 };
 //*******************************************
@@ -157,11 +157,11 @@ var parser = {
 
                         var result = JSON.parse(body);
 
-                        if(!result.error_message) {
+                        if(!result.error_message && result.status == "OK") {
                             // write the lat and long
-                            meeting.latLong = JSON.parse(body).results[0].geometry.location;
+                            meeting.latLong = result.results[0].geometry.location;
                             // write formatted address
-                            meeting.formattedLocation = JSON.parse(body).results[0].formatted_address;
+                            meeting.formattedLocation = result.results[0].formatted_address;
                         } else {
 
                             meeting.latLong = null;
