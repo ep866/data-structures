@@ -22,11 +22,26 @@ var data = {
             return _.map(group.meetings, function(thisGroup){
 
                 var g = thisGroup;
+                var time = g.time.split(",")[1].trim();
+                var startTime = time.split(" to ")[0].trim();
+                var endTime = time.split(" to ")[1].trim();
 
+                // save detailed location
+                g.fullLocation = g.location;
+                // save just the name of the meeting place
+                g.location = group.location
+                // get day of meeting
                 g.day = g.time.split(",")[0];
-                g.time = g.time.split(",")[1].trim();
+                // get start time
+                g.startTime = startTime;
+                // get end time
+                g.endTime = endTime;
+                // get lat long
                 g.latLong = group.latLong;
+                // get formatted location
                 g.formattedLocation = group.formattedLocation;
+                // discard the time key
+                delete g.time;
 
                 return g;
             });
