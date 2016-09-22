@@ -4,7 +4,7 @@
   "description": "Scrape and augment the AA data with geoLocation",
   "main": "app.js",
   "scripts": {
-    "start": "node scrapper.js",
+    "start": "node dbinsert.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Elena Paunova",
@@ -16,7 +16,8 @@
     "cheerio": "0.22.0",
     "csv": "1.1.0",
     "async": "2.0.1",
-    "underscore": "1.8.3"
+    "underscore": "1.8.3",
+    "mongodb": "2.2.10"
   }
 }
 
