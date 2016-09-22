@@ -152,8 +152,6 @@ var parser = {
                 async.eachSeries(meetings, function(meeting, callback){
                     var apiRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + meeting.sanitizedAddress.split(' ').join('+').replace(',','') + '&key=' + apiKey;
 
-                    console.log(apiRequest)
-
                     request(apiRequest, function(err, resp, body) {
                         if (err) {throw err;}
 
@@ -190,7 +188,7 @@ var parser = {
                     console.log('Successfully augmented the data');
                     console.log("******************************************");
                     // on completion write out the augmented data in a json file
-                    // fs.writeFileSync('./augmented_meetings.json', JSON.stringify(augmentedMeetings, null, 2) , 'utf-8');
+                    fs.writeFileSync('./augmented_meetings.json', JSON.stringify(augmentedMeetings, null, 2) , 'utf-8');
                 });
 
 
@@ -213,9 +211,12 @@ var parser = {
                 return _.countBy(x.meetings, "location");
             });
 
-             fs.writeFileSync('./meetings_stats.json', JSON.stringify(countMeetingPerLocation, null, 2) , 'utf-8');
+
+            //console.log(countMeetingPerLocation);
+             // fs.writeFileSync('./meetings_stats.json', JSON.stringify(countMeetingPerLocation, null, 2) , 'utf-8');
         });
 
+        console.log('Successfully wrote stats file!');
 
         // if yes move location from details to highter level structure
 
@@ -331,13 +332,15 @@ parser.read("data/meetings.txt", function(html) {
         //*******************************************
 
         // parser.extract(meetings);
-        //parser.meetingsStats();
+
+// gotta sort these
+        // parser.meetingsStats();
 
         //*******************************************
         // Augment data
         //*******************************************
 
-        parser.augmentData();
+        // parser.augmentData();
 
 
     });
