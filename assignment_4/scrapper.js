@@ -211,21 +211,29 @@ var parser = {
                 return _.countBy(x.meetings, "location");
             });
 
+            countMeetingPerLocation = _.map(countMeetingPerLocation, function(location){
 
-            //console.log(countMeetingPerLocation);
-             // fs.writeFileSync('./meetings_stats.json', JSON.stringify(countMeetingPerLocation, null, 2) , 'utf-8');
+
+                 return _.map(location, function(value, key){
+
+                    return {
+                        location: key,
+                        count: value
+                    };
+
+                });
+
+            });
+
+            var sorted = _.sortBy( _.flatten(countMeetingPerLocation), "count" );
+
+            sorted = sorted.reverse();
+
+            fs.writeFileSync('./meetings_stats.json', JSON.stringify(sorted, null, 2) , 'utf-8');
+
         });
 
         console.log('Successfully wrote stats file!');
-
-        // if yes move location from details to highter level structure
-
-        // if no redo all meetngs logic
-
-        // then augment the data to make sure you have the right lat long
-
-        // then mongo db
-
     }
 
 };
@@ -333,7 +341,9 @@ parser.read("data/meetings.txt", function(html) {
 
         // parser.extract(meetings);
 
-// gotta sort these
+        //*******************************************
+        // Get stats on number of meetings per location
+        //*******************************************
         // parser.meetingsStats();
 
         //*******************************************
