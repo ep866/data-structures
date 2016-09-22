@@ -5,7 +5,7 @@ var MongoClient = mongodb.MongoClient;
 var _ = require("underscore");
 
 //*******************************************
-// Utils
+// Data manipulation
 //*******************************************
 
 var data = {
@@ -49,19 +49,31 @@ var data = {
 
         var collection = _.flatten(allGroups);
 
-        console.log(collection);
         // write file
         fs.writeFileSync('./db_collection.json', JSON.stringify(collection, null, 2) , 'utf-8');
+
+
+        console.log("******************************************");
+        console.log("Wrote db_collection.json with formated data");
+        console.log("******************************************");
 
     }
 };
 
-var db = {
+//*******************************************
+// DB stuff
+//*******************************************
 
+var db = {
+    insert: function(data) {
+        console.log(data);
+    },
+    get: function() {
+        // to visualize the data I will need all meetings for the applicable day and time
+        // and then have to group again by location
+    }
 };
 
-// to visualize the data I will need all meetings for the applicable day and time
-// and then have to group again by location
 
 data.readFile("augmented_meetings.json", function(meetings){
 
@@ -69,6 +81,25 @@ data.readFile("augmented_meetings.json", function(meetings){
     // Format meetings for collection insertion
     //*******************************************
 
-    data.format(meetings);
+    // data.format(meetings);
 
 });
+
+
+data.readFile("db_collection.json", function(meetings){
+
+    //*******************************************
+    // Now insert the formatted meetings into the DB
+    //*******************************************
+
+    db.insert(meetings);
+
+});
+
+
+
+
+
+
+
+
