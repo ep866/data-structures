@@ -258,7 +258,7 @@ parser.entities = {
             var details = {};
 
             // load details file
-            parser.read('data/' + meetingName + '.txt', function(meetingDetails){
+            parser.read('cachedFiles/' + meetingName + '.txt', function(meetingDetails){
                 var $ = cheerio.load(meetingDetails);
                 // grab meeting details
                 details = parser.entities.meetingDetails($);
@@ -325,7 +325,7 @@ parser.entities = {
 //*******************************************
 // parser.request(url, 'meetings');
 
-parser.read("data/meetings.txt", function(html) {
+parser.read("cachedFiles/meetings.txt", function(html) {
 
     parser.loadData(html, function(meetings){
         //*******************************************
@@ -336,7 +336,7 @@ parser.read("data/meetings.txt", function(html) {
         // parser.cacheFiles(meetings);
 
         //*******************************************
-        // Extract data: 1010 unique locations for 3,654 meetings
+        // Extract data: 1013 unique locations for 3,652 meetings
         //*******************************************
 
         // parser.extract(meetings);

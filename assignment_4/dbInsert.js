@@ -66,7 +66,24 @@ var data = {
 
 var db = {
     insert: function(data) {
-        console.log(data);
+        console.log(data.length);
+
+        // mongo url
+        var url = "mongodb://localhost:27017/AAmeetings";
+
+        // connect
+        MongoClient.connect(url, function(err, db){
+            if(err) { return console.log(err); }
+
+            var collection = db.collection("meetings");
+
+            // insert
+            data.forEach(function(meeting, i){
+                collection.insert( meeting );
+            });
+
+            db.close();
+        });
     },
     get: function() {
         // to visualize the data I will need all meetings for the applicable day and time
@@ -92,9 +109,13 @@ data.readFile("db_collection.json", function(meetings){
     // Now insert the formatted meetings into the DB
     //*******************************************
 
-    db.insert(meetings);
+    // db.insert(meetings);
 
 });
+
+
+
+
 
 
 
