@@ -23,3 +23,15 @@ What is the size of this file?
 	- API rate limits
 	- Keeping your API key off of GitHub (use a Linux environment variable instead)
 - Update your GitHub repository with the relevant file(s)
+
+
+###Assignemtn 4 [Level 2] [Due 9/26 at 4:00pm]:
+
+- Start MongoDB by opening a new terminal window in your Cloud 9 workspace and running the command ./mongod
+- Access the Mongo shell prompt by opening another new terminal window and running the command mongo
+- In the Mongo shell, create and switch to a new database for the data you prepared in the previous assignment.
+- In this new database, create a new collection that will hold a "document" (JSON style data structure) for each "meeting" (however you decide to structure and represent meetings, groups, and or locations).
+- Use the mongodb module in Node to insert these documents to the collection you created in the database you created. Hint: check to make sure you have the correct number of documents!
+- Update your GitHub repository with the relevant file(s)
+
+
