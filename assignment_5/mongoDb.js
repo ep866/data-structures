@@ -142,10 +142,13 @@ var db = {
                 // when the loop ends
                 // print in terminal and save result to a json file
                 if( testId == nIterations) {
+                    console.log("******************************************");
                     console.log(docs);
+                    console.log("******************************************");
                     profiler.output(nIterations);
-                    db.close();
                 }
+
+                db.close();
 
             });
 
@@ -197,8 +200,14 @@ data.readFile("db_collection.json", function(meetings){
 });
 
 
+//*******************************************
+// this will output the aggregated result
+// type in 25 to have it run 25 times
+// it will write a file in profiler/
+// it will also print the result of the last call in the console
+//*******************************************
 
-profiler.test(200);
+profiler.test(1);
 
 
 
