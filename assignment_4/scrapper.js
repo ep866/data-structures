@@ -85,7 +85,7 @@ var parser = {
             var meetingName = utils.parseHref( url );
 
             // check if already cached
-            if( fs.existsSync('data/' + meetingName + '.txt') ) {
+            if( fs.existsSync('cachedFiles/' + meetingName + '.txt') ) {
                 console.log('File '+ meetingName +' already exists!');
             } else {
                 parser.request(url, meetingName);
