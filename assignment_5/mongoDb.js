@@ -8,6 +8,29 @@ var _ = require("underscore");
 // Data manipulation
 //*******************************************
 
+var utils = {
+    timeFormat: function(str) {
+        var str = str;
+        if( str.toLowerCase() == "noon" ) {str = "12:00 pm"}
+        if( str.toLowerCase() == "midnight" ) {str = "12:00 am"}
+
+        var time = str;
+        var hours = Number(time.match(/^(\d+)/)[1]);
+        var minutes = Number(time.match(/:(\d+)/)[1]);
+        var AMPM = time.match(/\s(.*)$/)[1];
+        if (AMPM == "pm" && hours < 12) hours = hours + 12;
+        if (AMPM == "am" && hours == 12) hours = hours - 12;
+        var sHours = hours.toString();
+        var sMinutes = minutes.toString();
+        if (hours < 10) sHours = "0" + sHours;
+        if (minutes < 10) sMinutes = "0" + sMinutes;
+        // console.log(sHours + ":" + sMinutes);
+
+        return (sHours + ":" + sMinutes);
+    }
+
+};
+
 var data = {
     readFile: function(file, cb) {
         var content = fs.readFileSync(file);
@@ -33,9 +56,9 @@ var data = {
                 // get day of meeting
                 g.day = g.time.split(",")[0];
                 // get start time
-                g.startTime = startTime;
+                g.startTime = utils.timeFormat(startTime);
                 // get end time
-                g.endTime = endTime;
+                g.endTime = utils.timeFormat(endTime);
                 // get lat long
                 g.latLong = group.latLong;
                 // get formatted location
@@ -86,31 +109,46 @@ var db = {
         });
     },
     aggregate: function(testId, nIterations) {
+
         var datetimeStart = new Date();
 
         MongoClient.connect(url, function(err, db) {
             if (err) {return console.dir(err);}
 
             var collection = db.collection(collectionName);
+            var pipe = [{
+                $match: { $and: [
+                    { day: "Tuesday" },
+                    { $or:[
+                     { startTime : {$gte: "19:00"} },
+                     // we have to catch these after midnight as well
+                     { startTime : {$gte: "00:00", $lt: "05:00"} }
+                ]}
+                ] }}
+                // these is for debugging
+                // { $group: { _id: "$startTime", count: { $sum: 1 } } },
+                // { $sort : { _id: 1 } }
+            ];
 
-            collection.aggregate([{ $limit : 3 }]).toArray(function(err, docs) {
-                if(err) {
-                    console.log(err)
-                } else {
-                   console.log(docs);
-                }
+
+            collection.aggregate(pipe).toArray(function(err, docs) {
+                if(err) { console.log(err); }
 
                 profiler.result.push({
                     id: testId,
                     time: new Date() - datetimeStart
                 });
-                if(testId == nIterations) {
+
+                // when the loop ends
+                // print in terminal and save result to a json file
+                if( testId == nIterations) {
+                    console.log(docs);
                     profiler.output(nIterations);
+                    db.close();
                 }
 
             });
 
-            db.close();
         });
 
     }
@@ -121,7 +159,7 @@ var profiler = {
 
     test:function(nIterations) {
 
-        for(var i = 0; i <= nIterations; i++) {
+        for(var i = 1; i <= nIterations; i++) {
             db.aggregate(i,nIterations);
         }
 
@@ -159,7 +197,8 @@ data.readFile("db_collection.json", function(meetings){
 });
 
 
-profiler.test(10);
+
+profiler.test(200);
 
 
 
