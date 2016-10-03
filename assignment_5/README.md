@@ -52,21 +52,21 @@ As of 9/16/2016 there are 3,652 meetings in 1,013 unique locations.
 - the connections are indeed concurrent. The database errors at around 230 concurrent connections and the profiler fails.
 - notice the order of the processes - they do not return in order
 
-### At 25 iterations
+### 25 queries
 
 ![](plots/25_iterations.png)
 
 
-### At 50 iterations
+### 50 queries
 
 ![](plots/50_iterations.png)
 
 
-### At 100 iterations
+### 100 queries
 
 ![](plots/100_iterations.png)
 
-### At 200 iterations
+### 200 queries
 
 ![](plots/200_iterations.png)
 

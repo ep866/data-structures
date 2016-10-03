@@ -121,11 +121,11 @@ var db = {
                     { day: "Tuesday" },
                     { $or:[
                      { startTime : {$gte: "19:00"} },
-                     // we have to catch these after midnight as well
+                     // we have to catch meetings after midnight as well
                      { startTime : {$gte: "00:00", $lt: "05:00"} }
                 ]}
                 ] }}
-                // these is for debugging
+                // this is for debugging
                 // { $group: { _id: "$startTime", count: { $sum: 1 } } },
                 // { $sort : { _id: 1 } }
             ];
