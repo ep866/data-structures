@@ -35,3 +35,12 @@ What is the size of this file?
 - Update your GitHub repository with the relevant file(s)
 
 
+
+###Assignemtn 5 [Level 2] [Due 10/03 at 4:00pm]:
+
+
+- Revisit your previous assignments and modify them to expand the data you are collecting to include all available information (about each meeting group and the meetings they hold each week).
+- Write all this data to a Mongo database, having decided upon your unit of analysis and appropriate data structures.
+- Using the aggregation pipeline, write a query that returns all meetings that start on Tuesdays at or after 7:00pm. Include relevant information about the meeting group, the location, special instructions, and details about the meetings.
+- Report on the latency of the query. Run the same query at least 25 times and graphically show the distribution of latency (measured in milliseconds). If you experimented with multiple data structures and/or query formats, generate a graph for each experiment. If you created an index, show the latency graph of the distribution for prior to creating the index and again for after its creation.
+- Update your GitHub repository with the relevant file(s)
