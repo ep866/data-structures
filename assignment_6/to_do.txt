@@ -1,0 +1,2 @@
+- single query at a time report
+- aggregate on location to put the markers on the map
