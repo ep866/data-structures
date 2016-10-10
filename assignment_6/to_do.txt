@@ -1,2 +1,9 @@
 - single query at a time report
-- aggregate on location to put the markers on the map
+- aggregate on location to put the markers on the map - in mongoDb. So continue the pipeline?
+- the data structure can be viewed from aaron’s single marker example 
+- test how much time the browser js aggregate is vs mongo’s aggregate js
+
+- then what? —> final assignment? 
+
+AWS book
+Mongo book

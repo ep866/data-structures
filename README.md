@@ -25,7 +25,7 @@ What is the size of this file?
 - Update your GitHub repository with the relevant file(s)
 
 
-###Assignemtn 4 [Level 2] [Due 9/26 at 4:00pm]:
+###Assignment 4 [Level 2] [Due 9/26 at 4:00pm]:
 
 - Start MongoDB by opening a new terminal window in your Cloud 9 workspace and running the command ./mongod
 - Access the Mongo shell prompt by opening another new terminal window and running the command mongo
@@ -36,7 +36,7 @@ What is the size of this file?
 
 
 
-###Assignemtn 5 [Level 2] [Due 10/03 at 4:00pm]:
+###Assignment 5 [Level 2] [Due 10/03 at 4:00pm]:
 
 
 - Revisit your previous assignments and modify them to expand the data you are collecting to include all available information (about each meeting group and the meetings they hold each week).
@@ -44,3 +44,15 @@ What is the size of this file?
 - Using the aggregation pipeline, write a query that returns all meetings that start on Tuesdays at or after 7:00pm. Include relevant information about the meeting group, the location, special instructions, and details about the meetings.
 - Report on the latency of the query. Run the same query at least 25 times and graphically show the distribution of latency (measured in milliseconds). If you experimented with multiple data structures and/or query formats, generate a graph for each experiment. If you created an index, show the latency graph of the distribution for prior to creating the index and again for after its creation.
 - Update your GitHub repository with the relevant file(s)
+
+###Assignment 6 [Due 10/10 at 4:00pm]:
+
+- A function that takes a meeting name from your web scrape and returns a cleanly formatted meeting name. The function should:
+	- Remove redundancies.
+	- Remove unnecessary punctuation, such as parentheses, hyphens, redundant commas, and symbols.
+Correct misspellings.
+Example: "LIVING NOW - Living Now (:II)" should be "LIVING NOW"
+- A function that takes address data from your web scrape and returns a formatted address that is appropriate for input to the Google Geocoding API. The function should:
+	- 	Remove unnecessary address elements such as floor, room number, or directions.
+	- 	Remove unnecessary punctuation, such as parentheses, hyphens, redundant commas, and symbols.
+	- 	Correct misspellings.
