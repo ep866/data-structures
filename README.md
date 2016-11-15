@@ -56,3 +56,16 @@ Example: "LIVING NOW - Living Now (:II)" should be "LIVING NOW"
 	- 	Remove unnecessary address elements such as floor, room number, or directions.
 	- 	Remove unnecessary punctuation, such as parentheses, hyphens, redundant commas, and symbols.
 	- 	Correct misspellings.
+
+
+###Assignment 7 [Due 10/25 at 4:00pm]:
+- Switching gears from previous assignments, you will use a microcontroller and sensors to collect and log data to your local computer. You will also design (in concept only) an interactive visualization of the data you will collect from the sensor.
+
+###Assignments 8&9 [Due 11/7 at 4:00pm]:
+- You will create a SQL database (using a managed database service) and begin writing your sensor data to it.
+- You will query data from the SQL database you have created, restructuring the data in the process.
+
+
+
+
+ 
