@@ -1,0 +1,27 @@
+{
+  "name": "final_project_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongoDb.js",
+  "scripts": {
+    "start": "node UiApp/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elena Paunova",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "debug": "~2.2.0",
+    "request": "2.67.0",
+    "cheerio": "0.22.0",
+    "csv": "1.1.0",
+    "async": "2.0.1",
+    "underscore": "1.8.3",
+    "mongodb": "2.2.10",
+    "date-and-time": "*",
+    "express": "*",
+    "ejs": "*"
+  }
+}
+
+

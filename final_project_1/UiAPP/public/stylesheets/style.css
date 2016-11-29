@@ -1,0 +1,44 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#map {
+    height: 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 40px;
+    padding: 0;
+}
+
+h4 {
+    font-variant: bold;
+}
+
+.bold {
+    font-weight: 900;
+}
+span {
+    display: block;
+}
+
+.gm-style-iw h4 {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.gm-style-iw ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.gm-style-iw li {
+    margin: 10px 0 0 0;
+}
+
+

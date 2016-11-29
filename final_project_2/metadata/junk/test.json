@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1000",
+    "img": "isDouble-1000-shot.png",
+    "sec": "1000",
+    "time": "00:16:40",
+    "debateDate": "October_19_2016",
+    "who": "isHillary",
+    "isDouble": true,
+    "location": "shots/October_19_2016/doubles_split/isHillary-1000-shot.png",
+    "sentiment": [
+      {
+        "faceRectangle": {
+          "height": 187,
+          "left": 119,
+          "top": 189,
+          "width": 187
+        },
+        "scores": {
+          "anger": 0.00118063053,
+          "contempt": 0.00329232425,
+          "disgust": 0.00112915342,
+          "fear": 0.000234300183,
+          "happiness": 0.204628125,
+          "neutral": 0.514670134,
+          "sadness": 0.000694084039,
+          "surprise": 0.274171263
+        }
+      }
+    ]
+  },
+  {
+    "id": "1000",
+    "img": "isDouble-1000-shot.png",
+    "sec": "1000",
+    "time": "00:16:40",
+    "debateDate": "October_19_2016",
+    "who": "isTrump",
+    "isDouble": true,
+    "location": "shots/October_19_2016/doubles_split/isTrump-1000-shot.png",
+    "sentiment": [
+      {
+        "faceRectangle": {
+          "height": 213,
+          "left": 241,
+          "top": 173,
+          "width": 213
+        },
+        "scores": {
+          "anger": 0.0162788276,
+          "contempt": 0.06377499,
+          "disgust": 0.0123326685,
+          "fear": 0.000159274379,
+          "happiness": 0.00301290047,
+          "neutral": 0.869713247,
+          "sadness": 0.03168142,
+          "surprise": 0.0030466835
+        }
+      }
+    ]
+  },
+  {
+    "id": "1001",
+    "img": "isDouble-1001-shot.png",
+    "sec": "1001",
+    "time": "00:16:41",
+    "debateDate": "October_19_2016",
+    "who": "isHillary",
+    "isDouble": true,
+    "location": "shots/October_19_2016/doubles_split/isHillary-1001-shot.png",
+    "sentiment": [
+      {
+        "faceRectangle": {
+          "height": 192,
+          "left": 119,
+          "top": 188,
+          "width": 192
+        },
+        "scores": {
+          "anger": 0.00174820318,
+          "contempt": 0.00395767856,
+          "disgust": 0.00146471546,
+          "fear": 0.000121473124,
+          "happiness": 0.1878536,
+          "neutral": 0.604890764,
+          "sadness": 0.000847713032,
+          "surprise": 0.199115828
+        }
+      }
+    ]
+  }
+]

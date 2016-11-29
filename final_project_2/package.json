@@ -1,0 +1,25 @@
+{
+  "name": "final_project_2",
+  "version": "1.0.0",
+  "description": "Collect Screenshots",
+  "main": "server.js",
+  "scripts": {
+    "start": "node db.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elena Paunova",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "fluent-ffmpeg": "2.1.0",
+    "pg": "*",
+    "pg-promise": "*",
+    "easyimage": "*",
+    "project-oxford": "*",
+    "async": "*",
+    "underscore": "*",
+    "express": "*"
+  }
+}
+
+
