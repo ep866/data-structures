@@ -72,6 +72,28 @@ var getEmotion = function(res, emotion) {
   });
 }
 
+// this is the one which aggregates all results
+router.get('/aggregated', function(req, res, next) {
+  pg.connect(conString, function(err, client, done){
+    if(err) {
+      res.json("Error Connecting to Postgres DB");
+    }
+
+    var query = "SELECT who, COUNT(case when anger >= 0.5 then 1 end) as anger, COUNT(case when contempt >= 0.5 then 1 end) as contempt, COUNT(case when  disgust >= 0.5 then 1 end) as disgust, COUNT(case when  fear >= 0.5 then 1 end) as fear, COUNT(case when  happiness >= 0.5 then 1 end) as happiness, COUNT(case when  neutral >= 0.5 then 1 end) as neutral, COUNT(case when  sadness >= 0.5 then 1 end) as sadness, COUNT(case when  surprise >= 0.5 then 1 end) as surprise FROM debates GROUP BY who";
+
+    client.query(query, function(err, result) {
+        done();
+        if(err) {
+          return console.error('error running query', err);
+        }
+        res.json(result);
+        console.log("Row count:", result);
+    });
+
+  });
+});
+
+// depricated
 router.get('/aggregate/anger', function(req, res, next) {
   return getEmotion(res, "anger");
 });

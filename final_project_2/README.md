@@ -144,16 +144,34 @@ var resizer = new ShotsEditor({
 //*****//
 
 ```
+<br>
+<br>
 
-####Postgres:
+#### POSTREGS SETUP AND INSERT:
 - script: db.js
 
-
-- table definition
-
+####Table definition
 
 ```
-var createTableQuery = "CREATE TABLE debates (id smallint, image_name varchar(500), image_link varchar(1500), date_debate date, is_double_shot boolean, time_shot_secs smallint, time_shot varchar(30), who varchar(100), anger decimal(5,2), contempt decimal(5,2), disgust decimal(5,2), fear decimal(5,2), happiness decimal(5,2), neutral decimal(5,2), sadness decimal(5,2), surprise decimal(5,2));"
+CREATE TABLE debates 
+(
+id smallint, 
+image_name varchar(500), 
+image_link varchar(1500), 
+date_debate date, 
+is_double_shot boolean, 
+time_shot_secs smallint, 
+time_shot varchar(30), 
+who varchar(100), 
+anger decimal(5,2), 
+contempt decimal(5,2), 
+disgust decimal(5,2), 
+fear decimal(5,2), 
+happiness decimal(5,2), 
+neutral decimal(5,2), 
+sadness decimal(5,2), 
+surprise decimal(5,2)
+);
 ```
 
 - table check
@@ -185,41 +203,278 @@ Row count: Result {
   _getTypeParser: [Function: bound ] }
 ```
 
+<br>
+<br>
+
 #### EXPRESS API & QUERIES:
 - The app is running on port 3000
 
 ### Available Endpoints
 
-- api/all - returns all of the images and emotions
-- api/dominant - returns the dominant emotion (one of anger, contempt, disgust, fear, happiness, neutral, sadness, surprise) 
-- api/aggregate/anger
-- api/aggregate/contempt
-- api/aggregate/disgust
-- api/aggregate/fear
-- api/aggregate/happiness
-- api/aggregate/neutral
-- api/aggregate/sadness
-- api/aggregate/surprise
+- **api/all** - returns all of the images and emotions
 
-Example for api/aggregate/sadness
+- **api/dominant** - returns the dominant emotion (one of anger, contempt, disgust, fear, happiness, neutral, sadness, surprise) 
+
+#### Query
+
+```
+SELECT CASE 
+greatest(anger, contempt, disgust, fear, happiness, neutral, sadness, surprise) 
+WHEN anger THEN 'anger' 
+WHEN contempt THEN 'contempt' 
+WHEN disgust THEN 'disgust' 
+WHEN fear THEN 'fear' 
+WHEN happiness THEN 'happiness' 
+WHEN neutral THEN 'neutral' 
+WHEN sadness THEN 'sadness' 
+WHEN surprise THEN 'surprise' 
+END AS Emotion, 
+id, image_name, time_shot_secs, time_shot, who 
+FROM debates
+```
+#### Query Result (subset)
 
 ```
 {
   "command": "SELECT",
-  "rowCount": 3,
+  "rowCount": 11972,
+  "oid": null,
+  "rows": [
+    {
+      "emotion": "neutral",
+      "id": 438,
+      "image_name": "isHillary-438-shot.png",
+      "time_shot_secs": 438,
+      "time_shot": "00:07:18",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 439,
+      "image_name": "isHillary-439-shot.png",
+      "time_shot_secs": 439,
+      "time_shot": "00:07:19",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 440,
+      "image_name": "isHillary-440-shot.png",
+      "time_shot_secs": 440,
+      "time_shot": "00:07:20",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 441,
+      "image_name": "isHillary-441-shot.png",
+      "time_shot_secs": 441,
+      "time_shot": "00:07:21",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 442,
+      "image_name": "isHillary-442-shot.png",
+      "time_shot_secs": 442,
+      "time_shot": "00:07:22",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 443,
+      "image_name": "isHillary-443-shot.png",
+      "time_shot_secs": 443,
+      "time_shot": "00:07:23",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 444,
+      "image_name": "isHillary-444-shot.png",
+      "time_shot_secs": 444,
+      "time_shot": "00:07:24",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 445,
+      "image_name": "isHillary-445-shot.png",
+      "time_shot_secs": 445,
+      "time_shot": "00:07:25",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 446,
+      "image_name": "isHillary-446-shot.png",
+      "time_shot_secs": 446,
+      "time_shot": "00:07:26",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 447,
+      "image_name": "isHillary-447-shot.png",
+      "time_shot_secs": 447,
+      "time_shot": "00:07:27",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 448,
+      "image_name": "isHillary-448-shot.png",
+      "time_shot_secs": 448,
+      "time_shot": "00:07:28",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 449,
+      "image_name": "isHillary-449-shot.png",
+      "time_shot_secs": 449,
+      "time_shot": "00:07:29",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 450,
+      "image_name": "isHillary-450-shot.png",
+      "time_shot_secs": 450,
+      "time_shot": "00:07:30",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 451,
+      "image_name": "isHillary-451-shot.png",
+      "time_shot_secs": 451,
+      "time_shot": "00:07:31",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 452,
+      "image_name": "isHillary-452-shot.png",
+      "time_shot_secs": 452,
+      "time_shot": "00:07:32",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 453,
+      "image_name": "isHillary-453-shot.png",
+      "time_shot_secs": 453,
+      "time_shot": "00:07:33",
+      "who": "isHillary"
+    },
+    {
+      "emotion": "neutral",
+      "id": 454,
+      "image_name": "isHillary-454-shot.png",
+      "time_shot_secs": 454,
+      "time_shot": "00:07:34",
+      "who": "isHillary"
+    }
+  ]
+}
+
+```
+<br>
+<br>
+
+- **api/aggregated** - returns summary of all emotions detected
+
+#### Query
+
+```
+
+SELECT who, 
+COUNT(case when anger >= 0.5 then 1 end) as anger, 
+COUNT(case when contempt >= 0.5 then 1 end) as contempt, 
+COUNT(case when  disgust >= 0.5 then 1 end) as disgust, 
+COUNT(case when  fear >= 0.5 then 1 end) as fear, 
+COUNT(case when  happiness >= 0.5 then 1 end) as happiness, 
+COUNT(case when  neutral >= 0.5 then 1 end) as neutral, 
+COUNT(case when  sadness >= 0.5 then 1 end) as sadness, 
+COUNT(case when  surprise >= 0.5 then 1 end) as surprise 
+FROM debates 
+GROUP BY who
+
+```
+#### Query Result
+
+```
+{
+  "command": "SELECT",
+  "rowCount": 6,
   "oid": null,
   "rows": [
     {
       "who": "isHillary",
-      "sadness": "1"
+      "anger": "0",
+      "contempt": "0",
+      "disgust": "0",
+      "fear": "0",
+      "happiness": "422",
+      "neutral": "4165",
+      "sadness": "2",
+      "surprise": "110"
     },
     {
       "who": "isEnd",
-      "sadness": "10"
+      "anger": "1",
+      "contempt": "0",
+      "disgust": "0",
+      "fear": "0",
+      "happiness": "259",
+      "neutral": "1326",
+      "sadness": "10",
+      "surprise": "28"
+    },
+    {
+      "who": "isHost",
+      "anger": "0",
+      "contempt": "1",
+      "disgust": "0",
+      "fear": "0",
+      "happiness": "60",
+      "neutral": "183",
+      "sadness": "0",
+      "surprise": "0"
     },
     {
       "who": "isTrump",
-      "sadness": "801"
+      "anger": "17",
+      "contempt": "4",
+      "disgust": "0",
+      "fear": "0",
+      "happiness": "19",
+      "neutral": "3177",
+      "sadness": "828",
+      "surprise": "81"
+    },
+    {
+      "who": "isGoodbye",
+      "anger": "0",
+      "contempt": "0",
+      "disgust": "0",
+      "fear": "0",
+      "happiness": "12",
+      "neutral": "24",
+      "sadness": "0",
+      "surprise": "0"
+    },
+    {
+      "who": "isMixed",
+      "anger": "0",
+      "contempt": "0",
+      "disgust": "0",
+      "fear": "0",
+      "happiness": "12",
+      "neutral": "97",
+      "sadness": "0",
+      "surprise": "2"
     }
   ],
   "fields": [
@@ -233,7 +488,70 @@ Example for api/aggregate/sadness
       "format": "text"
     },
     {
+      "name": "anger",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
+      "name": "contempt",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
+      "name": "disgust",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
+      "name": "fear",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
+      "name": "happiness",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
+      "name": "neutral",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
       "name": "sadness",
+      "tableID": 0,
+      "columnID": 0,
+      "dataTypeID": 20,
+      "dataTypeSize": 8,
+      "dataTypeModifier": -1,
+      "format": "text"
+    },
+    {
+      "name": "surprise",
       "tableID": 0,
       "columnID": 0,
       "dataTypeID": 20,
@@ -242,13 +560,24 @@ Example for api/aggregate/sadness
       "format": "text"
     }
   ],
-  "_parsers": [null, null],
+  "_parsers": [null, null, null, null, null, null, null, null, null],
   "rowAsArray": false
 }
 ```
 
-#### Design
+##### These are no longer necessary as I figured out how to aggregate all emotions at once but I am keeping them for the record
+- api/aggregate/anger
+- api/aggregate/contempt
+- api/aggregate/disgust
+- api/aggregate/fear
+- api/aggregate/happiness
+- api/aggregate/neutral
+- api/aggregate/sadness
+- api/aggregate/surprise
 
+#### Design
+##### This one relies on http://localhost:3000/api/aggregated
 ![](design/visualziation_1-01.png)
+##### This one relies on http://localhost:3000/api/dominant
 ![](design/visualziation_2-01.png)
 
